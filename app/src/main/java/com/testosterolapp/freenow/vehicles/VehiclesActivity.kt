@@ -35,19 +35,19 @@ import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.internal.PolylineEncoding
 import com.google.maps.model.DirectionsResult
 import com.testosterolapp.freenow.R
-import com.testosterolapp.freenow.util.ClusterMarker
+import com.testosterolapp.freenow.clusters.ClusterMarker
 import com.testosterolapp.freenow.data.Vehicle
 import com.testosterolapp.freenow.database.DaoRepository
 import com.testosterolapp.freenow.util.Constants.MAPVIEW_BUNDLE_KEY
 import com.testosterolapp.freenow.util.LinearLayoutManagerWrapper
-import com.testosterolapp.freenow.util.MyClusterManagerRenderer
+import com.testosterolapp.freenow.clusters.MyClusterManagerRenderer
 import com.testosterolapp.freenow.util.ViewWeightAnimationWrapper
 
 
 class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListener,
         VehiclesAdapter.VehicleAdapterClickListener {
 
-    private val TAG = "VehiclesFragment"
+    private val TAG = "VehiclesActivity"
 
     private val MAP_LAYOUT_STATE_CONTRACTED = 0
     private val MAP_LAYOUT_STATE_EXPANDED = 1
@@ -105,7 +105,7 @@ class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
                 addMapMarkers(vehicles)
             }
         }
-        model.filterTextAll.setValue("")
+        model.filterTextAll.value = ""
     }
 
 
@@ -134,7 +134,7 @@ class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
             != PackageManager.PERMISSION_GRANTED) {
             return
         }
-        val mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        val mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mFusedLocationClient.lastLocation.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val location = task.result
@@ -165,18 +165,19 @@ class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
                 mClusterManager = ClusterManager<ClusterMarker>(this, mGoogleMap)
             }
             if (mClusterManagerRenderer == null) {
-                mClusterManagerRenderer = MyClusterManagerRenderer(
-                    this,
-                    mGoogleMap,
-                    mClusterManager
-                )
+                mClusterManagerRenderer =
+                    MyClusterManagerRenderer(
+                        this,
+                        mGoogleMap,
+                        mClusterManager
+                    )
                 mClusterManager!!.renderer = mClusterManagerRenderer
             }
 
             for (vehicle in vehicles) {
                 try {
-                    var snippet = ""
-                    var avatar: Int = R.drawable.taxi // set the default avatar
+                    val snippet = ""
+                    val avatar: Int = R.drawable.taxi // set the default avatar
                     val newClusterMarker =
                         ClusterMarker(
                             LatLng(vehicle.latitude!!, vehicle.longitude!!),
@@ -269,7 +270,7 @@ class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
             ) != PackageManager.PERMISSION_GRANTED) {
             return
         }
-        mGoogleMap = map;
+        mGoogleMap = map
         map.isMyLocationEnabled = true
     }
 
@@ -324,12 +325,13 @@ class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickLi
             vehicle.longitude!!), 14.0f), 600, null)
 
         if (!mClusterMarkers.contains(vehicle)) {
-            var snippet = ""
-            var avatar: Int = R.drawable.taxi // set the default avatar
-            val newClusterMarker = ClusterMarker(
-                LatLng(vehicle.latitude!!, vehicle.longitude!!),
-                vehicle.fleetType, snippet, avatar, vehicle
-            )
+            val snippet = ""
+            val avatar: Int = R.drawable.taxi // set the default avatar
+            val newClusterMarker =
+                ClusterMarker(
+                    LatLng(vehicle.latitude!!, vehicle.longitude!!),
+                    vehicle.fleetType, snippet, avatar, vehicle
+                )
             mClusterManager!!.addItem(newClusterMarker)
             mClusterMarkers.add(newClusterMarker)
             mClusterManager!!.cluster()

@@ -1,4 +1,4 @@
-package com.testosterolapp.freenow.util;
+package com.testosterolapp.freenow.clusters;
 
 import android.content.Context;
 import android.graphics.Bitmap;

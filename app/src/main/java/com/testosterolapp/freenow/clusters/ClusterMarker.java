@@ -1,4 +1,4 @@
-package com.testosterolapp.freenow.util;
+package com.testosterolapp.freenow.clusters;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.clustering.ClusterItem;

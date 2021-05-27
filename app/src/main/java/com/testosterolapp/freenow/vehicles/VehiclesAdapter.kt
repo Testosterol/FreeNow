@@ -85,7 +85,7 @@ class VehiclesAdapter(context : Context, private val clickListener: VehicleAdapt
      * Method to calculate the distance between the user and the vehicle
      */
     private fun calculateDistance(): Double {
-        val user = daoRepository.getUser();
+        val user = daoRepository.getUser()
         val userLocation = Location("locationA")
         userLocation.latitude = user!!.latitude!!
         userLocation.longitude = user.longitude!!
