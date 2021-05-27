@@ -1,0 +1,124 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id("com.google.secrets_gradle_plugin") version "0.6"
+    id 'com.google.gms.google-services'
+}
+
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.testosterolapp.freenow"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
+        exclude("META-INF/*.kotlin_module")
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    // Needed for GeoContext
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+
+    // Google Services
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    // testing libs
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test:core:1.3.0'
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.1'
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "junit:junit:4.13.1"
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0-alpha05'
+
+    // navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    // volley
+    implementation 'com.android.volley:volley:1.2.0'
+
+    // room
+    implementation 'androidx.room:room-runtime:2.2.6'
+    implementation 'androidx.room:room-ktx:2.2.6'
+    annotationProcessor "android.arch.persistence.room:compiler:2.2.5"
+    kapt 'androidx.room:room-compiler:2.2.6'
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    // Paging
+    implementation 'androidx.paging:paging-runtime-ktx:2.1.2'
+
+    // ViewModelScope
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+
+    //LifeCycleScope
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    //LiveDataSccope
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+
+    // UI
+    implementation 'com.github.florent37:shapeofview:1.3.2'
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    // multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // Maps utils (required for custom markers)
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+
+    implementation 'com.google.maps:google-maps-services:0.18.1'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
+}

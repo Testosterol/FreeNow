@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FreeNow</string>
+    <string name="id">id</string>
+    <string name="latitude">latitude</string>
+    <string name="longitude">longitude</string>
+    <string name="coordinate">coordinate</string>
+    <string name="fleetType">fleetType</string>
+    <string name="heading">heading</string>
+    <string name="poiList">poiList</string>
+    <string name="google_maps_api_key">AIzaSyBsWd93uHi24oQEyUX0cULV8_S16YvSMtk</string>
+</resources>

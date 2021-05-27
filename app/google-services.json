@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "820408754716",
+    "project_id": "freenow-314515",
+    "storage_bucket": "freenow-314515.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820408754716:android:12ef2fb6abd55a019b35d9",
+        "android_client_info": {
+          "package_name": "com.testosterolapp.freenow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820408754716-b9hihn35r34clbiv1vq6su2g12po41gf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsWd93uHi24oQEyUX0cULV8_S16YvSMtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820408754716-b9hihn35r34clbiv1vq6su2g12po41gf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
