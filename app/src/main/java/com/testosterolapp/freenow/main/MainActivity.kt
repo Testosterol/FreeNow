@@ -33,10 +33,33 @@ import com.testosterolapp.freenow.vehicles.VehiclesActivity
  *
  * Dear Mr or Mrs / Dzien Dobry
  *
- * Project can be found on my github
+ * Project can be found on https://github.com/Testosterol/FreeNow
  *
+ * I enjoyed the project very much, I wanted to fines it and make it look like an actual taxi/car sharing app.
+ * However, after I finished my methods to calculate directions and draw Polygons on the map, I found out that in order to
+ * get directions, google requires a Billing account and I didn't want to get charged. It's a pity because the app could have been much cooler.
  *
+ * The app consists of one screen. Map on the top half focusing on the user's location and with drawn vehicles in Hamburg
+ * and vehicles list from the server on the bottom part with some additional information.
  *
+ * You are able to zoom in, zoom out, move around the map, expand the map to the full screen or shrink it back to 50/50,
+ * you can re-focus the camera back to user's location. After clicking on any vehicle item in the list, the camera will automatically
+ * move to the location of the vehicle and zoom in, showing the direction of which the car is heading to.
+ *
+ * Technicals:
+ *
+ * Code is straightforward. @MainActivity handles permissions and checks if google play services are available, it then requests
+ * the data from the server, then it starts VehiclesActivity.
+ *
+ * VehiclesActivity does the bread and butter, it has PagedList adapter with ViewModel to render the List of the vehicles
+ * into the UI and it also holds the map with the map functionalities.
+ *
+ * Other classes and packages handle rest of the work such as serverCommunication, Data persistance, Data models,
+ * and util classes.
+ *
+ * If you have any questions please reach out to me.
+ *
+ * Have a great day.
  *
  */
 class MainActivity : AppCompatActivity() {

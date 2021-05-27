@@ -28,7 +28,7 @@ class CoroutineAndDatabaseTests : DatabaseTest() {
             vehicleDao.insert(vehicle)
             val vehicle2 = Vehicle(2,1.1,1.2,"taxi",1.3)
             vehicleDao.insert(vehicle2)
-            Assert.assertEquals(vehicleDao.getAll()!!.size, 1)
+            Assert.assertEquals(vehicleDao.getAll()!!.size, 2)
             database.clearAllTables()
             assertEquals(vehicleDao.getAll(), listOf<Vehicle>())
         }
